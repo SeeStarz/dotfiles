@@ -1,0 +1,11 @@
+*
+!.gitignore
+!nvim
+!nvim/**
+!hypr
+!hypr/**
+!foot
+!foot/**
+!kitty
+!kitty/**
+!starship.toml
