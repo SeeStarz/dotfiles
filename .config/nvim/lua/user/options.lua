@@ -8,8 +8,8 @@ vim.opt.autoindent = true
 -- Line numberings
 vim.opt.number = true         -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
-vim.opt.cursorline = true    -- highlight current line
-vim.opt.cursorcolumn = true   -- highlight current column
+vim.opt.cursorline = true     -- highlight current line
+vim.opt.cursorcolumn = false  -- highlight current column
 vim.opt.wrap = true           -- enable line wrap
 vim.opt.signcolumn = "yes"    -- keep signcolumn on
 
