@@ -9,3 +9,5 @@
 !kitty
 !kitty/**
 !starship.toml
+!metapackages
+!metapackages/**

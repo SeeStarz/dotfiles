@@ -1,0 +1,136 @@
+pkgname=seestarz-cli
+pkgver=1.0
+pkgrel=1
+arch=(any)
+depends=(
+  # Shell
+  sh
+  bash
+  bash-completion
+  fish
+  starship
+  zsh
+  python
+
+  # Editor
+  dhex
+  hexedit
+  nano
+  neovim
+  vim
+
+  # Manual
+  man-pages
+  man-db
+
+  # Container
+  docker
+  docker-compose
+  flatpak
+  podman
+
+  # Monitoring
+  btop
+  nvtop
+  powertop
+  radeontop
+
+  # Media tools
+  dos2unix
+  gifsicle
+  imagemagick
+  pandoc-cli
+  pdftk
+  qpdf
+  qrtool
+
+  # Network
+  curl
+  networkmanager
+  networkmanager-openvpn
+  net-tools
+  wget
+
+  # Disk usage
+  dust
+  gdu
+
+  # Compression
+  unrar
+  zip
+  gzip
+  tar
+
+  # Navigation
+  tree
+  zoxide
+
+  # CTF
+  binwalk
+  checksec
+  gef
+  gnu-netcat
+  john
+  mediainfo
+  patchelf
+  perl-image-exiftool
+  radare2
+  sagemath
+  socat
+  wireshark-cli
+  python-pycryptodome
+
+  # Backup
+  rclone
+  rsync
+  unison
+
+  # Funsies
+  cmatrix
+  cowsay
+  fastfetch
+  lolcat
+  sl
+  thefuck
+
+  # File finder
+  fzf
+  nnn
+
+  # Mirrorlist
+  reflector
+
+  # Debug
+  strace
+
+  # Priveledge
+  sudo
+
+  # Power
+  tlp
+
+  # Torrent
+  transmission-cli
+
+  # Trash
+  trash-cli
+
+  # Clipboard
+  cliphist
+
+  # Brightness
+  brightnessctl
+
+  # Bluetooth
+  bluez
+  blueberry
+
+  # Browser
+  lynx
+
+  # Noise suppression
+  noise-suppression-for-voice
+
+  # Time tracker
+  timew
+)

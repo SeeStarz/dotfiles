@@ -1,0 +1,44 @@
+pkgname=seestarz-devtools
+pkgver=1.0
+pkgrel=1
+arch=(any)
+depends=(
+  # General
+  base
+  base-devel
+
+  # Languages
+  cuda
+  clang
+  cmake
+  godot
+  lua51
+  nasm
+  python
+  sassc
+  typescript
+
+  # Databases
+  postgresql
+
+  # Package manager
+  pnpm
+  npm
+  yarn
+  rustup
+
+  # Tools
+  expac
+  jq
+
+  # Library
+  sfml
+  gtk4-layer-shell
+
+  # Language Server
+  rust-analyzer
+  lua-language-server
+
+  # Formatter
+  prettier
+)

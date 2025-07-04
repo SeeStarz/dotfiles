@@ -1,0 +1,81 @@
+pkgname=seestarz-gui
+pkgver=1.0
+pkgrel=1
+arch=(any)
+depends=(
+  # Terminal
+  alacritty
+  foot
+  kitty
+  kitty-shell-integration
+  kitty-terminfo
+  xterm
+
+  # Handwriting
+  xournalpp
+  rnote
+
+  # Creation/Editing
+  gimp
+  inkscape
+  krita
+
+  # Browser
+  chromium
+  firefox
+  vivaldi
+
+  # Media
+  eog
+  evince
+  mpv
+
+  # Documents
+  libreoffice-fresh
+  obsidian
+
+  # File explorer
+  nautilus
+
+  # Recording
+  gnome-sound-recorder
+  obs-studio
+
+  # Social
+  discord
+
+  # Virtualbox
+  virtualbox
+  virtualbox-guest-iso
+
+  # Password store
+  keepassxc
+
+  # Games
+  gamescope
+  lutris
+  mangohud
+  steam
+
+  # Keyring manager
+  seahorse
+
+  # CTF
+  audacity
+  ghidra
+  wireshark-qt
+
+  # Benchmark
+  glmark2
+  glxgears
+  vkmark
+
+  # Wayland checker
+  xorg-xeyes
+
+  # Audio
+  pavucontrol
+
+  # Torrent
+  transmission-qt
+)
