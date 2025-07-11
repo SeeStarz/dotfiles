@@ -36,8 +36,13 @@ depends=(
   gtk4-layer-shell
 
   # Language Server
-  rust-analyzer
+  bash-language-server
   lua-language-server
+  marksman
+  python-lsp-server
+  rust-analyzer
+  vscode-css-languageserver
+  vscode-html-languageserver
 
   # Formatter
   prettier
