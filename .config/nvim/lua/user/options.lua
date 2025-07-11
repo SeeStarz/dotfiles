@@ -16,6 +16,9 @@ vim.opt.signcolumn = "yes"    -- keep signcolumn on
 vim.opt.scrolloff = 8         -- keep cursor away from edges
 vim.opt.sidescrolloff = 8
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.termguicolors = false
 
 vim.opt.list = true
