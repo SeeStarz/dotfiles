@@ -75,6 +75,7 @@ depends=(
   patchelf
   perl-image-exiftool
   radare2
+  tcpdump
   sagemath
   socat
   wireshark-cli
