@@ -24,3 +24,7 @@ vim.lsp.enable("bashls")
 vim.lsp.enable("cssls")
 vim.lsp.enable("html")
 vim.lsp.enable("marksman")
+
+-- WEB --
+vim.cmd("packadd live-server.nvim")
+require("live-server").setup()

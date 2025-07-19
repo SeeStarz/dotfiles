@@ -1,6 +1,6 @@
 #!/bin/bash
 
-base=${XDG_DATA_HOME:-${HOME}/.local/share}/nvim/packages
+base=${XDG_DATA_HOME:-${HOME}/.local/share}/nvim/site/pack
 
 {
 for package in $(ls "${base}"); do
