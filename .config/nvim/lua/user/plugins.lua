@@ -16,7 +16,9 @@ require("lspconfig")
 vim.cmd("COQnow --shut-up")
 
 vim.lsp.inlay_hint.enable(true)
-vim.lsp.config("*", coq.lsp_ensure_capabilities())
+local config = coq.lsp_ensure_capabilities()
+config.capabilities.textDocument.completion.completionItem.resolveSupport.properties = {"additionalTextEdits", "command"}
+vim.lsp.config("*", config)
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("pylsp")
