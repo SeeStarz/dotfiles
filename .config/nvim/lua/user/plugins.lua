@@ -11,6 +11,16 @@ vim.g.coq_settings = {
   },
 }
 
+require("pywal16").setup()
+vim.cmd("colorscheme darkblue") -- I have no clue why this workaround is needed
+vim.cmd("colorscheme pywal16")
+
+require("lualine").setup({
+  options = {
+      theme = 'pywal16-nvim',
+    },
+})
+
 local coq = require("coq")
 require("lspconfig")
 vim.cmd("COQnow --shut-up")
