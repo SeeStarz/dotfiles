@@ -11,3 +11,5 @@
 !starship.toml
 !metapackages
 !metapackages/**
+!colorschemes
+!colorschemes/**
