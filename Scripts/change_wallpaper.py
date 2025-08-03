@@ -1,6 +1,11 @@
 #!/bin/python3
 
 import argparse
+import json
+import re
+from base64 import b64encode
+from PIL import Image
+from io import BytesIO
 from os import getenv, makedirs, symlink, remove
 from os.path import expanduser, isfile
 from subprocess import run
@@ -73,18 +78,87 @@ def apply_wal(args: argparse.Namespace):
         print(f'User colorscheme at: "{colorscheme_path}" not found', file=stderr)
         return
 
-    run(["wal", "-f", colorscheme_path], check=True)
+    print(f'Using user colorscheme at: "{colorscheme_path}"')
+
+    cmd = ["wal", "-f", colorscheme_path] 
+    if not args.dry_run:
+        print(f"Running: {cmd}")
+        run(cmd, check=True)
+    else:
+        print(f"Will run if not on dry run: {cmd}")
 
 
 def apply_hyprpaper(args: argparse.Namespace):
     makedirs(Dirs.hyprpaper_state, exist_ok=True)
-    state_file = f"{Dirs.hyprpaper_state}/active_wallpaper"
+    state_path = f"{Dirs.hyprpaper_state}/active_wallpaper"
+    wallpaper_path = f"{Dirs.wallpaper}/{args.wallpaper}"
 
-    if isfile(state_file):
-        remove(state_file)
+    if not isfile(wallpaper_path):
+        print(f'Wallpaper at: "{wallpaper_path}" not found', file=stderr)
+    print(f'Using wallpaper at: "{wallpaper_path}"')
 
-    symlink(f"{Dirs.wallpaper}/{args.wallpaper}", state_file)
-    run(["hyprctl", "hyprpaper", "reload", f",{state_file}"], check=True)
+    if isfile(state_path) and not args.dry_run:
+        print(f'Removing active wallpaper symlink at: "{state_path}"')
+        remove(state_path)
+    elif isfile(state_path) and args.dry_run:
+        print(f'Will remove active wallpaper symlink at: "{state_path}" if not on dry run')
+
+    if not args.dry_run:
+        print(f'Symlinking "{state_path}" to "{wallpaper_path}"')
+        symlink(wallpaper_path, state_path)
+    else:
+        print(f'Will symlink "{state_path}" to "{wallpaper_path}" if not on dry run')
+
+    cmd = ["hyprctl", "hyprpaper", "reload", f",{state_path}"]
+    if not args.dry_run:
+        print(f"Running: {cmd}")
+        run(cmd, check=True)
+    else:
+        print(f"Will run if not on dry run: {cmd}")
+
+def apply_betterdiscord(args: argparse.Namespace):
+    generated_theme_json_path = f"{Dirs.generated_colorscheme}/colors.json"
+    template_path = f"{Dirs.betterdiscord_theme}/Scripted.theme.template"
+    theme_path = f"{Dirs.betterdiscord_theme}/Scripted.theme.css"
+
+    if not isfile(generated_theme_json_path):
+        print(f'Generated theme at: "{generated_theme_json_path}" not found', file=stderr)
+        return
+    print(f'Using generated theme at: "{generated_theme_json_path}"')
+
+    with open(generated_theme_json_path, "r") as file:
+        background_color_str = json.loads(file.read())["special"]["background"].removeprefix("#")
+
+    assert re.fullmatch("[0-9a-fA-F]{6}", background_color_str), f"Something is wrong with the generated json file, got: {background_color_str}"
+    r, g, b = (int(background_color_str[i:i+2], 16) for i in range(0, 6, 2))
+    print(f"Using colors r:{r} g:{g} b:{b}")
+
+    img = Image.new("RGB", (1, 1), (r, g, b))
+    buf = BytesIO()
+    img.save(buf, format="png", optimize=True)
+    base64_img = b64encode(buf.getvalue()).decode("ASCII", errors="strict")
+
+    colors = f'''
+:root {{
+  --background: url("data:image/png;base64,{base64_img}");
+  --accentcolor: {r}, {g}, {b};
+}}
+'''
+
+    if not isfile(template_path):
+        print(f'BetterDiscord template at: "{template_path}" not found', file=stderr)
+        return
+    print(f'Using BetterDiscord template at: "{template_path}"')
+
+    with open(template_path, "r") as file:
+        contents = file.read()
+
+    if args.dry_run:
+        print(f'Will write to: "{theme_path}" if not in dry run')
+        return
+    print(f'Writing to: "{theme_path}"')
+    with open(theme_path, "w") as file:
+        file.write(contents + colors)
 
 
 def main():
@@ -93,6 +167,7 @@ def main():
     Dirs.setup()
     apply_wal(args)
     apply_hyprpaper(args)
+    apply_betterdiscord(args)
 
 if __name__ == "__main__":
     main()
