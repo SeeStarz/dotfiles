@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+import traceback
 from base64 import b64encode
 from PIL import Image
 from io import BytesIO
@@ -127,23 +128,36 @@ def apply_betterdiscord(args: argparse.Namespace):
     print(f'Using generated theme at: "{generated_theme_json_path}"')
 
     with open(generated_theme_json_path, "r") as file:
-        background_color_str = json.loads(file.read())["special"]["background"].removeprefix("#")
+        json_contents = json.load(file)
+        
+    try:
+        background_color_str = json_contents["colors"]["color0"].removeprefix("#")
+        accent_color_str = json_contents["colors"]["color8"].removeprefix("#")
+    except KeyError:
+        traceback.print_exc(file=stderr)
+        print('Failed to parse colorscheme', file=stderr)
+        print(f'Colorscheme contents:\n{json_contents}', file=stderr)
+        return
 
-    assert re.fullmatch("[0-9a-fA-F]{6}", background_color_str), f"Something is wrong with the generated json file, got: {background_color_str}"
-    r, g, b = (int(background_color_str[i:i+2], 16) for i in range(0, 6, 2))
-    print(f"Using colors r:{r} g:{g} b:{b}")
+    assert re.fullmatch("[0-9a-fA-F]{6}", background_color_str), f"Something is wrong with the generated json file, colors0: {background_color_str}"
+    assert re.fullmatch("[0-9a-fA-F]{6}", accent_color_str), f"Something is wrong with the generated json file, colors8: {background_color_str}"
 
-    img = Image.new("RGB", (1, 1), (r, g, b))
+    background_color = tuple([int(background_color_str[i:i+2], 16) for i in range(0, 6, 2)])
+    accent_color = tuple([int(accent_color_str[i:i+2], 16) for i in range(0, 6, 2)])
+    print("Using background color r:{} g:{} b:{}".format(*background_color))
+    print("Using accent color r:{} g:{} b:{}".format(*accent_color))
+
+    img = Image.new("RGB", (1, 1), background_color)
     buf = BytesIO()
     img.save(buf, format="png", optimize=True)
     base64_img = b64encode(buf.getvalue()).decode("ASCII", errors="strict")
 
-    colors = f'''
+    colors = '''
 :root {{
   --background: url("data:image/png;base64,{base64_img}");
-  --accentcolor: {r}, {g}, {b};
+  --accentcolor: {}, {}, {};
 }}
-'''
+'''.format(base64_img=base64_img, *accent_color)
 
     if not isfile(template_path):
         print(f'BetterDiscord template at: "{template_path}" not found', file=stderr)
