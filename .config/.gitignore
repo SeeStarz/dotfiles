@@ -6,6 +6,8 @@
 !hypr/**
 !foot
 !foot/**
+!fish
+!fish/**
 !kitty
 !kitty/**
 !starship.toml
@@ -16,3 +18,5 @@
 !BetterDiscord
 !BetterDiscord/themes
 !BetterDiscord/themes/Scripted.theme.template
+!btop
+!btop/**
