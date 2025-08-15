@@ -11,25 +11,34 @@ depends=(
   cuda
   clang
   cmake
+  go
   godot
   lua51
   nasm
+  php
   python
   sassc
   typescript
+  jdk-openjdk
+  jre8-openjdk
+  jre11-openjdk
+  jre17-openjdk
 
   # Databases
   postgresql
 
   # Package manager
-  pnpm
+  gradle
+  meson
   npm
-  yarn
+  pnpm
   rustup
+  yarn
 
   # Tools
   expac
   jq
+  httpie
 
   # Library
   sfml
@@ -37,13 +46,17 @@ depends=(
 
   # Language Server
   bash-language-server
+  ccls
   lua-language-server
   marksman
   python-lsp-server
+  ruff
   rust-analyzer
   vscode-css-languageserver
   vscode-html-languageserver
 
   # Formatter
   prettier
+  pyright
+  stylua
 )

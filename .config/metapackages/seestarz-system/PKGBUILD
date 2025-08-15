@@ -1,9 +1,9 @@
-pkgname=seestarz-xorg
+pkgname=seestarz-system
 pkgver=1.0
 pkgrel=1
 arch=(any)
 depends=(
-  # xorg
+  # Xorg
   xf86-video-vesa
   xorg-bdftopcf
   xorg-docs
@@ -91,12 +91,14 @@ depends=(
   xorg-xwininfo
   xorg-xwud
 
-  # xorg-drivers
+  # Xorg input drivers
   xf86-input-evdev
   xf86-input-libinput
   xf86-input-synaptics
   xf86-input-vmmouse
   xf86-input-void
+
+  # Xorg DDX drivers
   xf86-video-amdgpu
   xf86-video-dummy
   xf86-video-fbdev
@@ -104,6 +106,35 @@ depends=(
   xf86-video-vesa
   xf86-video-voodoo
 
-  # xorg-xinit
+  # Start gui session
+  hyprland
+  openbox
   xorg-xinit
+
+  # opengl & vulkan
+  mesa
+  lib32-mesa
+  vulkan-radeon
+  lib32-vulkan-radeon
+  nvidia
+  nvidia-utils
+  lib32-nvidia-utils
+
+  # opencl
+  opencl-nvidia
+
+  # audio
+  sof-firmware
+  pulseaudio-alsa
+  pipewire-alsa
+  pipewire-pulse
+  pipewire
+  lib32-pipewire
+
+  # cpu
+  amd-ucode
+
+  # boot
+  os-prober
+  grub
 )

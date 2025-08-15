@@ -37,6 +37,7 @@ depends=(
 
   # Media tools
   dos2unix
+  ghostscript
   gifsicle
   imagemagick
   pandoc-cli
@@ -46,9 +47,12 @@ depends=(
 
   # Network
   curl
+  git
+  iputils
   networkmanager
   networkmanager-openvpn
   net-tools
+  traceroute
   wget
 
   # Disk usage
@@ -132,6 +136,6 @@ depends=(
   # Noise suppression
   noise-suppression-for-voice
 
-  # Time tracker
-  timew
+  # Pacman scripts
+  pacman-contrib
 )

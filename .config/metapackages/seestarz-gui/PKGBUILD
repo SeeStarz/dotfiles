@@ -57,7 +57,7 @@ depends=(
   mangohud
   steam
 
-  # Keyring manager
+  # Keyring manager (gnome)
   seahorse
 
   # CTF
@@ -78,4 +78,26 @@ depends=(
 
   # Torrent
   transmission-qt
+
+  # Notification
+  batsignal
+  dunst
+
+  # Screenshot
+  grim
+  slurp
+
+  # Hyprland
+  hypridle
+  hyprlock
+  hyprpaper
+
+  # Taskbar
+  waybar
+
+  # Wine
+  wine
+  wine-gecko
+  wine-mono
+  winetricks
 )
