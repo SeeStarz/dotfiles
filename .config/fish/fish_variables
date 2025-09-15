@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export LESS:\x2dR\x20\x2di
 SETUVAR --export MANPAGER:less\x20\x2d\x2duse\x2dcolor\x20\x2dDd\x2br\x20\x2dDu\x2bb
-SETUVAR --export MANROFFOPT:\x2dP\x20\x2dc
+SETUVAR --export PAGER:less
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher

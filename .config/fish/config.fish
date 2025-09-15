@@ -33,11 +33,20 @@ if status is-interactive
     alias ff fastfetch
     alias dotfiles 'git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
     alias tree 'tree -C'
+    alias tp trash-put
 
     thefuck --alias | source
 
+    set -xU PAGER less
+
+    # Set use color
+    # Bold is set to bold and red
+    # Underlined is set to underlined and blue
     set -xU MANPAGER 'less --use-color -Dd+r -Du+b'
-    set -xU MANROFFOPT '-P -c'
+
+    # set -xU MANROFFOPT '-P -c'
+
+    # Set colorful and ignorecase
     set -xU LESS '-R -i'
 
     fastfetch
