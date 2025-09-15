@@ -1,0 +1,1 @@
+/home/fahri/Documents/UI/Sem3/OS/startqemu.sh
