@@ -1,0 +1,2 @@
+-- autocmd BufEnter *.js :setlocal tabstop=2 shiftwidth=2 expandtab
+-- vim.cmd("autocmd BufEnter *.py :setlocal tabstop=4 shiftwidth=4 expandtab")

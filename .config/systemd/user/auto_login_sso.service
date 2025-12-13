@@ -3,9 +3,7 @@ Description=Auto Login SSO UI
 
 [Service]
 Type=simple
-ExecStart=%h/Scripts/auto_login_sso.py
-Restart=on-failure
-RestartSec=1
+ExecStart=/bin/bash -c 'PATH=%h/Scripts:$PATH auto_login_sso.py'
 
 [Install]
 WantedBy=default.target

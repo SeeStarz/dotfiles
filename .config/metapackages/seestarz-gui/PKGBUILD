@@ -44,10 +44,6 @@ depends=(
   # Social
   discord
 
-  # Virtualbox
-  virtualbox
-  virtualbox-guest-iso
-
   # Password store
   keepassxc
 

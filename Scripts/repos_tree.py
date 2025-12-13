@@ -19,6 +19,11 @@ def check_is_last_dir(path: str) -> bool:
         return True
     return False
 
+def check_is_stop(path: str) -> bool:
+    if isfile(join(path, ".stophere")):
+        return True
+    return False
+
 def tree(root: str, prefix: str="", err: str="") -> str:
     last_dir = True if check_is_last_dir(root) else False
 
@@ -34,12 +39,10 @@ def tree(root: str, prefix: str="", err: str="") -> str:
         child_prefix = prefix + ("    " if last else "│   ")
 
         if isdir(path):
-            if not last_dir:
-                print(f"{new_prefix}{color4(name)}")
-            else:
+            if last_dir or check_is_stop(path):
                 print(f"{new_prefix}{color2(name)}")
-
-            if not last_dir:
+            else:
+                print(f"{new_prefix}{color4(name)}")
                 err += tree(path, prefix=child_prefix, err=err)
         else:
             print(f"{new_prefix}{name}")

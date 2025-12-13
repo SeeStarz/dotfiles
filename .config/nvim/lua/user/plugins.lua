@@ -43,7 +43,7 @@ local config = {
 
 require("lspconfig")
 vim.lsp.config("*", config)
-vim.lsp.inlay_hint.enable(true)
+-- vim.lsp.inlay_hint.enable(true)
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("pylsp")
@@ -52,6 +52,8 @@ vim.lsp.enable("bashls")
 vim.lsp.enable("cssls")
 vim.lsp.enable("html")
 vim.lsp.enable("marksman")
+vim.lsp.enable("jdtls")
+vim.lsp.enable("jinja_lsp")
 
 -- WEB --
 vim.cmd("packadd live-server.nvim")

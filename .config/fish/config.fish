@@ -12,6 +12,8 @@ if status is-interactive
 
     starship init fish | source
     zoxide init fish | source
+    thefuck --alias | source
+    pyenv init - fish | source
 
     # This needs a custom zoxide version with support for exact name filter
     function ze -d "Z jump exact"
@@ -34,8 +36,7 @@ if status is-interactive
     alias dotfiles 'git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
     alias tree 'tree -C'
     alias tp trash-put
-
-    thefuck --alias | source
+    alias lsblk 'lsblk -o NAME,SIZE,PARTTYPENAME,PARTLABEL,LABEL,FSTYPE,MOUNTPOINT'
 
     set -xU PAGER less
 
@@ -44,7 +45,8 @@ if status is-interactive
     # Underlined is set to underlined and blue
     set -xU MANPAGER 'less --use-color -Dd+r -Du+b'
 
-    # set -xU MANROFFOPT '-P -c'
+    # Disable color or something that messes with manpage color
+    set -xU MANROFFOPT '-c'
 
     # Set colorful and ignorecase
     set -xU LESS '-R -i'

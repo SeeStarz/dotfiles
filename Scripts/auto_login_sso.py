@@ -68,9 +68,10 @@ if __name__ == "__main__":
                 "Failed to login a fifth time, is password correct? Shutting off."
             )
             call(
-                "notify-send Failed to login a fifth time, is password correct? Shutting off.",
+                "notify-send 'Failed to login a fifth time, is password correct? Shutting off.'",
                 shell=True,
             )
+            exit(1)
 
         if check_network_name() != "HotSpot - UI":
             logging.debug("Not connected to HotSpot - UI, skipping")
@@ -97,7 +98,7 @@ if __name__ == "__main__":
                 logging.debug(f"Stderr: {result.stderr}")
                 fail_count = 0
             else:
-                logging.warn("Program exited with exit code: " + str(result.returncode))
+                logging.warning("Program exited with exit code: " + str(result.returncode))
                 logging.debug(f"Stdout: {result.stdout}")
                 logging.debug(f"Stderr: {result.stderr}")
                 fail_count += 1
