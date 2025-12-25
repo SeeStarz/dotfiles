@@ -8,7 +8,6 @@ depends=(
   base-devel
 
   # Languages
-  cuda
   clang
   cmake
   go
@@ -23,6 +22,23 @@ depends=(
   jre8-openjdk
   jre11-openjdk
   jre17-openjdk
+
+  # Java
+  junit
+
+  # C/C++
+  valgrind
+
+  # Python
+  pyenv
+  python-ansicolor # Color
+  python-systemd   # Logging
+  python-passlib   # Hash stuffs
+  python-lupa      # LUA
+  python-pygame    # Game framework
+
+  # Working with .deb
+  apt
 
   # Databases
   postgresql
@@ -42,7 +58,6 @@ depends=(
 
   # Library
   sfml
-  gtk4-layer-shell
 
   # Language Server
   bash-language-server
@@ -59,4 +74,7 @@ depends=(
   prettier
   pyright
   stylua
+
+  # Debugging
+  strace
 )

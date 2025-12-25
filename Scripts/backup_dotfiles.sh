@@ -4,7 +4,7 @@ cd $HOME
 # Effectively an alias
 function dotfiles() {
   # Means the git store is on .dotfiles, but our working directory is $HOME
-  git --git-dir=$HOME/.dotfiles --work-tree=$HOME "$@"
+  git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
 # Check if there is any change, whether it is untracked file or changes
 if [ -n "$(dotfiles status --porcelain)" ]; then

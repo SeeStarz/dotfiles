@@ -1,0 +1,253 @@
+pkgname=seestarz-user
+pkgver=1.0
+pkgrel=1
+pkgdesc="My preferred application and tools: text editor, network, shell, etc."
+arch=(any)
+depends=(
+  # NOTE:
+  # This package reflects my current usage.
+  # Grouping is for readability, not strict taxonomy.
+  # Things move when patterns become obvious.
+  # Or it may stay for a while because I don't have time.
+
+  # --- System Essentials -------------------------------
+  sudo  # Auth
+  fcron # Cronjob
+  rsync # Sync
+
+  # Network
+  curl
+  gnu-netcat
+  iputils
+  networkmanager
+  networkmanager-openvpn
+  net-tools
+  traceroute
+  wget
+  wireguard-tools # VPN
+  sshpass         # Pass password to ssh
+  sshuttle        # Poor man's VPN
+  git
+
+  # Compression
+  unrar
+  zip
+  gzip
+  tar
+
+  # Manpages
+  man-pages
+  man-db
+
+  # Container
+  docker
+  docker-compose
+  flatpak
+  podman
+  nvidia-container-toolkit
+
+  # --- Compositor --------------------------------------
+  # X11
+  #xorg (this is a group not a metapackage)
+  openbox
+  qtile
+
+  # Hyprland
+  hyprland
+  hypridle
+  hyprlock
+  hyprpaper
+  hyprpicker
+  waybar
+
+  # --- Terminal Setup ----------------------------------
+  # Main Terminal
+  kitty
+  kitty-shell-integration
+  kitty-terminfo
+
+  # Other Terminals
+  alacritty
+  foot
+  xterm
+
+  # Main shell
+  fish # NOTE: Not POSIX compatible
+  starship # Prompt framework
+  python # Trust, python shell is good
+
+  # POSIX shells
+  bash
+  bash-completion
+  zsh
+  dash
+
+  # Navigation
+  tree
+  zoxide # Better cd
+
+  # Editor
+  neovim  # Main editor
+  dhex    # Hex viewer
+  hexedit # Hex editor
+  nano
+  vim
+
+  # --- Terminal tools ----------------------------------
+  # File finder
+  fzf
+  nnn
+
+  # Media tools
+  ghostscript # Image something something
+  gifsicle # GIF
+  imagemagick # All rounder image processor
+  pandoc-cli # MD to PDF
+  pdftk # PDF something something
+  qpdf # Unpassword PDF
+  qrtool # QR
+
+  rclone # Sync
+  thefuck # Autocomplete
+  inotify-tools # Filesystem monitor
+  stress # Stress test
+  jq # JSON
+  dos2unix # CRLF to LF and vice versa
+  trash-cli # Trash
+
+  # Funsies
+  cmatrix # Hacker
+  cowsay # Say what?
+  lolcat # Rainbow filter
+  sl # Steam locomotive
+
+  # --- Applications ------------------------------------
+  # Handwriting
+  xournalpp
+  rnote
+
+  # Image creation/editing
+  gimp
+  inkscape
+  krita
+
+  # Browser
+  chromium
+  firefox
+  vivaldi
+
+  # Media viewer
+  eog    # image
+  evince # pdf
+  mpv    # video
+
+  # Documents
+  libreoffice-fresh
+  obsidian
+
+  # Recording
+  gnome-sound-recorder
+  obs-studio
+
+  # Social
+  discord
+  #nchat
+  #line
+
+  # Games
+  gamescope
+  lutris
+  mangohud
+  steam
+
+  # Benchmark
+  glmark2
+  vkmark
+
+  transmission-qt # Torrent
+  octave # Math
+  virt-manager # VM GUI
+
+  # --- Desktop Utility ---------------------------------
+  # Screenshot
+  grim
+  slurp
+
+  # Bluetooth
+  bluez
+  blueberry
+
+  # Popup Runner
+  wofi
+  fuzzel
+
+  xorg-xeyes # Wayland checker
+  batsignal # Low battery reminder
+  pavucontrol # Audio control
+  nautilus # File explorer
+  tlp # power
+  cliphist # Clipboard
+  brightnessctl # Brightness control
+  nvidia-prime # Dual-GPU runner
+  seahorse # Keyring manager (gnome)
+  noise-suppression-for-voice # Noise suppression
+
+  # --- System Info -------------------------------------
+  dust # tree-like disk usage query
+  gdu  # TUI filesystem disk usage
+  clinfo # OpenCL
+
+  # I forgot what these does, let's just keep it
+  evtest
+  inxi
+  lshw
+  vnstat
+
+  # --- System Monitoring -------------------------------
+  fastfetch # Newer neofetch
+  btop
+  nvtop
+  powertop
+  radeontop
+
+  # --- CTF Applications --------------------------------
+  # CLI
+  binwalk
+  checksec
+  gef
+  john
+  mediainfo
+  patchelf
+  perl-image-exiftool
+  radare2
+  tcpdump
+  sagemath
+  socat
+  wireshark-cli
+  python-pycryptodome
+  python-pwntools
+  python-flask
+
+  # GUI
+  audacity
+  ghidra
+  wireshark-qt
+  zaproxy
+
+  # --- Arch Stuffs -------------------------------------
+  reflector # Mirrorlist
+  pacman-contrib # Pacman scripts
+
+  # --- Background Services -----------------------------
+  dunst     # Notification daemon
+  keepassxc # Password store
+
+  # --- Compatibility -----------------------------------------
+  # Wine
+  wine
+  wine-gecko
+  wine-mono
+  winetricks
+
+  xpra # X11 shenanigans
+)

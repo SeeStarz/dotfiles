@@ -1,3 +1,5 @@
+set -e
+
 skip_build=0
 skip_asdeps=0
 for arg in $@; do
@@ -9,7 +11,7 @@ for arg in $@; do
   fi
 done
 
-for metapkg in $(ls); do
+for metapkg in seestarz-*; do
   if ! [ -d "$metapkg" ]; then
     continue
   fi
@@ -17,13 +19,12 @@ for metapkg in $(ls); do
   cd "$metapkg"
 
   if [ $skip_build -eq 0 ]; then
-    makepkg -sif
+    makepkg -sf
+    sudo pacman -U seestarz-*.pkg.tar.zst
   fi
 
   if [ $skip_asdeps -eq 0 ]; then
-    for deps in $(pactree -l -d 1 "$metapkg"); do
-      sudo pacman -D --asdeps "$deps"
-    done
+    sudo pacman -D --asdeps $(pactree -l -d 1 "$metapkg" | tail -n +2)
   fi
 
   cd ..
