@@ -1,3 +1,4 @@
+sudo -v
 set -e
 
 skip_build=0

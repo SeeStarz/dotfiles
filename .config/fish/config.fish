@@ -37,6 +37,8 @@ if status is-interactive
     alias tree 'tree -C'
     alias tp trash-put
     alias lsblk 'lsblk -o NAME,SIZE,PARTTYPENAME,PARTLABEL,LABEL,FSTYPE,MOUNTPOINT'
+    alias xcpy 'xclip -i -selection clipboard'
+    alias xpaste 'xclip -o -selection clipboard'
 
     set -xU PAGER less
 
