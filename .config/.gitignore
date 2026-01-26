@@ -24,3 +24,5 @@
 !fuzzel/**
 !anyrun
 !anyrun/**
+!qtile
+!qtile/**
