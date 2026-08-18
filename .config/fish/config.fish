@@ -39,6 +39,7 @@ if status is-interactive
     alias lsblk 'lsblk -o NAME,SIZE,PARTTYPENAME,PARTLABEL,LABEL,FSTYPE,MOUNTPOINT'
     alias xcpy 'xclip -i -selection clipboard'
     alias xpaste 'xclip -o -selection clipboard'
+    alias cdreal 'cd $(realpath .)'
 
     set -xU PAGER less
 
